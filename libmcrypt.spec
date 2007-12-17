@@ -15,7 +15,6 @@ BuildRequires:	autoconf2.5
 %if %mdkversion >= 1020
 BuildRequires:	multiarch-utils >= 1.0.3
 %endif
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Libmcrypt is a thread-safe library providing a uniform interface
