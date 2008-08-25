@@ -1,20 +1,20 @@
 %define major 4
 %define libname	%mklibname mcrypt %{major}
+%define develname %mklibname mcrypt -d
+%define static_develname %mklibname mcrypt -d -s
 
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	%mkrel 4
-License:	LGPL
+Release:	%mkrel 5
+License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
 BuildRequires:	libtool-devel
 BuildRequires:	automake1.7
 BuildRequires:	autoconf2.5
-%if %mdkversion >= 1020
 BuildRequires:	multiarch-utils >= 1.0.3
-%endif
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
@@ -39,25 +39,27 @@ SERPENT, RIJNDAEL, 3DES, GOST, SAFER+, CAST-256, RC2, XTEA, 3WAY,
 TWOFISH, BLOWFISH, ARCFOUR, WAKE and more. 
 
 
-%package -n	%{libname}-devel
+%package -n	%{develname}
 Summary:	Header files and libraries for developing apps with libmcrypt
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Provides:	%{name}-devel = %{version}
+Obsoletes:	%{libname}-devel
 
-%description -n	%{libname}-devel
+%description -n	%{develname}
 This package contains the header files and libraries needed to
 develop programs that use the libmcrypt library.
 Install it if you want to develop such applications.
 
-%package -n	%{libname}-static-devel
+%package -n	%{static_develname}
 Summary:	Static libraries for developing apps with libmcrypt
 Group:		Development/C
 Requires:	%{libname} = %{version}
 Requires:	%{name}-devel = %{version}
 Provides:	%{name}-static-devel = %{version}
+Obsoletes:	%{libname}-static-devel
 
-%description -n	%{libname}-static-devel
+%description -n	%{static_develname}
 This package contains the static libraries needed to
 develop programs that use the libmcrypt library.
 Install it if you want to develop such applications.
@@ -107,14 +109,12 @@ make check
 
 %files -n %{libname}
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.%{major}*
 
-%files -n %{libname}-devel
+%files -n %{develname}
 %defattr(-, root, root)
 %doc AUTHORS COPYING.LIB ChangeLog INSTALL KNOWN-BUGS NEWS README THANKS TODO doc/README.* doc/*.c
-%if %mdkversion >= 1020
 %multiarch %{multiarch_bindir}/libmcrypt-config
-%endif
 %{_bindir}/libmcrypt-config
 %{_libdir}/*.la
 %{_libdir}/*.so
@@ -124,7 +124,7 @@ make check
 %{_datadir}/aclocal/*.m4
 %{_mandir}/man3/*
 
-%files -n %{libname}-static-devel
+%files -n %{static_develname}
 %defattr(-, root, root)
 %{_libdir}/*.a
 %{_libdir}/%{name}/*.a
