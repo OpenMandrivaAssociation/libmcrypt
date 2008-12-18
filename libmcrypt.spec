@@ -6,7 +6,7 @@
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://mcrypt.sourceforge.net/
@@ -15,7 +15,7 @@ BuildRequires:	libtool-devel
 BuildRequires:	automake1.7
 BuildRequires:	autoconf2.5
 BuildRequires:	multiarch-utils >= 1.0.3
-BuildRoot:	%{_tmppath}/%{name}-buildroot
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Libmcrypt is a thread-safe library providing a uniform interface
