@@ -6,13 +6,13 @@
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	%mkrel 10
+Release:	%mkrel 11
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
 BuildRequires:	libtool-devel
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	autoconf2.5
 BuildRequires:	multiarch-utils >= 1.0.3
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -71,17 +71,17 @@ Install it if you want to develop such applications.
 %build
 rm -rf libltdl
 libtoolize --copy --force --ltdl
-cp `aclocal-1.7 --print-ac-dir`/libtool.m4 .
-aclocal-1.7
+cp `aclocal --print-ac-dir`/libtool.m4 .
+aclocal
 autoconf
-automake-1.7 --foreign
+automake --foreign
 
 %configure2_5x \
     --enable-dynamic-loading \
     --enable-static \
     --enable-shared \
     --disable-ltdl-install
-    
+
 %make
 
 %check
