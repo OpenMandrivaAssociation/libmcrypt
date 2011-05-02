@@ -6,7 +6,7 @@
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	%mkrel 11
+Release:	%mkrel 12
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://mcrypt.sourceforge.net/
@@ -14,7 +14,6 @@ Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
 BuildRequires:	libtool-devel
 BuildRequires:	automake
 BuildRequires:	autoconf2.5
-BuildRequires:	multiarch-utils >= 1.0.3
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -92,9 +91,7 @@ make check
 
 %makeinstall
 
-%if %mdkversion >= 1020
 %multiarch_binaries %{buildroot}%{_bindir}/libmcrypt-config
-%endif
 
 %if %mdkversion < 200900
 %post -n %{libname} -p /sbin/ldconfig
@@ -114,7 +111,7 @@ make check
 %files -n %{develname}
 %defattr(-, root, root)
 %doc AUTHORS COPYING.LIB ChangeLog INSTALL KNOWN-BUGS NEWS README THANKS TODO doc/README.* doc/*.c
-%multiarch %{multiarch_bindir}/libmcrypt-config
+%{multiarch_bindir}/libmcrypt-config
 %{_bindir}/libmcrypt-config
 %{_libdir}/*.la
 %{_libdir}/*.so
