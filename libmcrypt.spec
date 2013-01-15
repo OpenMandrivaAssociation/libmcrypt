@@ -10,6 +10,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
+Patch0:		libmcrypt-automake-1.13.patch
 BuildRequires:	autoconf automake libtool libtool-devel
 
 %description
@@ -47,8 +48,8 @@ develop programs that use the libmcrypt library.
 Install it if you want to develop such applications.
 
 %prep
-
 %setup -q
+%apply_patches
 
 %build
 rm -rf libltdl autom4te.cache
@@ -56,7 +57,7 @@ libtoolize --copy --force --ltdl
 cp `aclocal --print-ac-dir`/libtool.m4 .
 aclocal
 autoconf
-automake --foreign
+automake --foreign -a
 
 %configure2_5x \
     --enable-dynamic-loading \
