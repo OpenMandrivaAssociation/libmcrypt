@@ -67,7 +67,9 @@ make check
 %makeinstall
 
 %multiarch_binaries %{buildroot}%{_bindir}/libmcrypt-config
+
 #MD this should be a libname-plugins named pkg or just recombine it with libname
+
 %files
 %{_libdir}/%{name}/*.so
 
