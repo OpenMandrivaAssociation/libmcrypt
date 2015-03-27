@@ -4,12 +4,12 @@
 
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
-Version:	2.5.8
-Release:	24
+Version:	2.6.8
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://mcrypt.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
+Source0:	https://sourceforge.net/projects/mcrypt/files/MCrypt/2.6.8/mcrypt-%{version}.tar.gz
 Patch0:		libmcrypt-automake-1.13.patch
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
@@ -86,4 +86,3 @@ make check
 %{_includedir}/mutils/mcrypt.h
 %{_datadir}/aclocal/*.m4
 %{_mandir}/man3/*
-
