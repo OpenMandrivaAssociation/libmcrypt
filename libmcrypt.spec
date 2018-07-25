@@ -5,7 +5,7 @@
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	25
+Release:	26
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://mcrypt.sourceforge.net/
@@ -52,7 +52,7 @@ Install it if you want to develop such applications.
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure \
 	--enable-dynamic-loading \
 	--disable-static \
 	--enable-shared \
@@ -66,10 +66,6 @@ make check
 %install
 %makeinstall
 
-%multiarch_binaries %{buildroot}%{_bindir}/libmcrypt-config
-
-#MD this should be a libname-plugins named pkg or just recombine it with libname
-
 %files
 %{_libdir}/%{name}/*.so
 
@@ -78,7 +74,6 @@ make check
 
 %files -n %{devname}
 %doc AUTHORS COPYING.LIB ChangeLog INSTALL KNOWN-BUGS NEWS README THANKS TODO doc/README.* doc/*.c
-%{multiarch_bindir}/libmcrypt-config
 %{_bindir}/libmcrypt-config
 %{_libdir}/lib*.so
 %{_includedir}/mcrypt.h
