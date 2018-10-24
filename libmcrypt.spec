@@ -5,7 +5,7 @@
 Summary:	Thread-safe data encryption library
 Name:		libmcrypt
 Version:	2.5.8
-Release:	26
+Release:	27
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://mcrypt.sourceforge.net/
