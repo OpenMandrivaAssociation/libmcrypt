@@ -10,7 +10,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
-#Patch0:		libmcrypt-automake-1.13.patch #This patch breaks versioning in the libmhash-config tool
+#Patch0:		libmcrypt-automake-1.13.patch #This patch breaks lib versioning in the libmhash-config script
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
 
@@ -52,7 +52,7 @@ Install it if you want to develop such applications.
 autoreconf -fi
 
 %build
-%configure2_5x \
+%configure \
 	--enable-dynamic-loading \
 	--disable-static \
 	--enable-shared \
@@ -65,10 +65,6 @@ make check
 
 %install
 %makeinstall
-
-%multiarch_binaries %{buildroot}%{_bindir}/libmcrypt-config
-
-#MD this should be a libname-plugins named pkg or just recombine it with libname
 
 %files
 %{_libdir}/%{name}/*.so
