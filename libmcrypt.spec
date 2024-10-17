@@ -8,7 +8,7 @@ Version:	2.5.8
 Release:	30
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://mcrypt.sourceforge.net/
+Url:		https://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
