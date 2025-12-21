@@ -10,6 +10,9 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://mcrypt.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/mcrypt/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	libtool
 BuildRequires:	libtool-devel
 BuildRequires:	automake
